@@ -179,14 +179,16 @@ public class DeviceInfo {
    /**
     * Device real size in pixels.
     *
-    * @return
+    * @return size of the physical display on the device (e.g. Full HD device is 1920x1080)
     */
    public Point getDisplayRealSize() {
       return new Point(displayRealSize);
    }
 
    /**
-    * @return
+    * Check connection type for wifi
+    *
+    * @return true, if current connection is WiFi
     */
    public boolean isWifiConnection() {
       try {

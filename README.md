@@ -1,20 +1,20 @@
 # DeviceInfo
-Easy info about Android device
+Easy info about Android device [ ![Download](https://api.bintray.com/packages/eyeem/maven/deviceinfo/images/download.svg) ](https://bintray.com/eyeem/maven/deviceinfo/_latestVersion)
 
-Available info:
-      - is7inch;
-      - is10inch;
-      - isPortrait;
-      - isLandscape;
-      - isPhone;
-      - isTablet;
-      - isAmazon;
-      - heightPixels;
-      - widthPixels;
-      - statusBarHeight;
-      - navigationBarHeight;
-      - diagonalScreenSize;
-      - displayRealSize;
+(currently) available info:
+- is7inch;
+- is10inch;
+- isPortrait;
+- isLandscape;
+- isPhone;
+- isTablet;
+- isAmazon;
+- heightPixels;
+- widthPixels;
+- statusBarHeight;
+- navigationBarHeight;
+- diagonalScreenSize;
+- displayRealSize;
 
 ```Java
 // add to your dependencies
@@ -30,3 +30,5 @@ if(di.isPortrait) {
    view.getLayoutParams.width = di.widthPixels;
 }
 ```
+
+Pull requests welcome!
