@@ -1,0 +1,26 @@
+src/com/baseapp/eyeem/etc/EyeemAppSettings.java
+gen/*
+bin/*
+.DS_Store
+.classpath
+.idea/
+*.iml
+*.iws
+*.log
+local.properties
+default.properties
+project.properties
+.project
+out/*
+/libs
+.settings/*
+
+# Gradle
+.gradle
+build
+
+# this shows up when taking a dump (java heap dump)
+/captures
+
+# Don't ignore code style, so it can be nicely shared across devs
+!.idea/codeStyleSettings.xml

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="bool" format="boolean" name="is7inch">false</item>
+    <item type="bool" format="boolean" name="is10inch">false</item>
+    <item type="bool" format="boolean" name="isPortrait">false</item>
+</resources>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:fillViewport="true"
+            tools:context="com.eyeem.deviceinfo.sample.MainActivity">
+
+   <TableLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="8dp">
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="is7inch"/>
+
+         <TextView
+            android:id="@+id/is7inch"
+            style="@style/Text"
+            tools:text="is7inch"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="is10inch"/>
+
+         <TextView
+            android:id="@+id/is10inch"
+            style="@style/Text"
+            tools:text="is10inch"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="isPortrait"/>
+
+         <TextView
+            android:id="@+id/isPortrait"
+            style="@style/Text"
+            tools:text="isPortrait"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="isLandscape"/>
+
+         <TextView
+            android:id="@+id/isLandscape"
+            style="@style/Text"
+            tools:text="isLandscape"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="isPhone"/>
+
+         <TextView
+            android:id="@+id/isPhone"
+            style="@style/Text"
+            tools:text="isPhone"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="isTablet"/>
+
+         <TextView
+            android:id="@+id/isTablet"
+            style="@style/Text"
+            tools:text="isTablet"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="isAmazon"/>
+
+         <TextView
+            android:id="@+id/isAmazon"
+            style="@style/Text"
+            tools:text="isAmazon"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="heightPixels"/>
+
+         <TextView
+            android:id="@+id/heightPixels"
+            style="@style/Text"
+            tools:text="heightPixels"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="widthPixels"/>
+
+         <TextView
+            android:id="@+id/widthPixels"
+            style="@style/Text"
+            tools:text="widthPixels"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="statusBarHeight"/>
+
+         <TextView
+            android:id="@+id/statusBarHeight"
+            style="@style/Text"
+            tools:text="statusBarHeight"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="navigationBarHeight"/>
+
+         <TextView
+            android:id="@+id/navigationBarHeight"
+            style="@style/Text"
+            tools:text="navigationBarHeight"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="diagonalScreenSize"/>
+
+         <TextView
+            android:id="@+id/diagonalScreenSize"
+            style="@style/Text"
+            tools:text="diagonalScreenSize"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="displayRealSize"/>
+
+         <TextView
+            android:id="@+id/displayRealSize"
+            style="@style/Text"
+            tools:text="displayRealSize"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="isWifiConnection"/>
+
+         <TextView
+            android:id="@+id/isWifiConnection"
+            style="@style/Text"
+            tools:text="isWifiConnection"/>
+      </TableRow>
+
+   </TableLayout>
+
+</ScrollView>
