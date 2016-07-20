@@ -1,12 +1,12 @@
 package com.eyeem.deviceinfo;
 
-import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
+import android.support.annotation.NonNull;
+import android.view.View;
 
 /**
  * Created by budius on 07.07.15.
@@ -19,58 +19,19 @@ public class DeviceInfo {
     * @param context context to base the device info from
     * @return a fresh (or cached) version of DeviceInfo.
     */
-   public static DeviceInfo get(Context context) {
+   public static DeviceInfo get(@NonNull Context context) {
       // all the creation/caching/init of DeviceInfo params is delegated to the factory
       return Factory.get(context);
    }
 
-   private static ContextWatcher deviceInfoWatcher;
-
    /**
-    * Install a ActivityLifecycleCallbacks to keep track of current active Activity.
-    * This allows the app to get an instance of DeviceInfo without the passing context.
-    * <p/>
-    * This is not the preferred implementation and it's deprecated.
-    * It's only here to keep some compatibility to our old stack and will be remove "soon".
-    * <p/>
-    * That's been deprecated because the logic to track current activity is overly convoluted
-    * and does not add much value to the library.
+    * Get or create an instance of DeviceInfo with all latest info about this device
     *
-    * @param app the Application instance
+    * @param view view to get context from.
+    * @return a fresh (or cached) version of DeviceInfo.
     */
-   @Deprecated
-   @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-   public static void ApplicationOnCreate(Application app) {
-      if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-         throw new UnsupportedOperationException(
-               "`static ApplicationOnCreate(Application)` can only be using starting on API 14 (ICE_CREAM_SANDWICH)");
-      } else if (deviceInfoWatcher == null) {
-         deviceInfoWatcher = new ContextWatcher(app);
-      }
-   }
-
-   /**
-    * Returns the device info object for the current (last created && not destroyed) activity.
-    * If none activity is running, we still return a valid DeviceInfo,
-    * but calculations that depends on `Display` won't be precise or necessarily correct.
-    * <p/>
-    * This is not the preferred implementation and it's deprecated.
-    * It's only here to keep some compatibility to our old stack and will be remove "soon".
-    * <p/>
-    * That's been deprecated because the logic to track current activity is overly convoluted
-    * and does not add much value to the library.
-    *
-    * @return valid device info object, never null.
-    */
-   @Deprecated
-   @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-   public static DeviceInfo get() {
-      if (deviceInfoWatcher == null) {
-         throw new IllegalStateException(
-               "You must first call `static ApplicationOnCreate(Application)` before call `static get()`");
-      } else {
-         return Factory.get(deviceInfoWatcher.getCurrentContext());
-      }
+   public static DeviceInfo get(@NonNull View view) {
+      return get(view.getContext());
    }
 
    /**
