@@ -3,11 +3,14 @@ package com.eyeem.deviceinfo.sample;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.eyeem.deviceinfo.DeviceInfo;
+
+import java.util.Locale;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,14 +23,17 @@ public class MainActivity extends AppCompatActivity {
    @Bind(R.id.isLandscape) TextView isLandscape;
    @Bind(R.id.isPhone) TextView isPhone;
    @Bind(R.id.isTablet) TextView isTablet;
+   @Bind(R.id.isInMultiWindowMode) TextView isInMultiWindowMode;
+   @Bind(R.id.isInPictureInPicture) TextView isInPictureInPicture;
    @Bind(R.id.isAmazon) TextView isAmazon;
-   @Bind(R.id.heightPixels) TextView heightPixels;
-   @Bind(R.id.widthPixels) TextView widthPixels;
+   @Bind(R.id.height) TextView height;
+   @Bind(R.id.width) TextView width;
    @Bind(R.id.statusBarHeight) TextView statusBarHeight;
    @Bind(R.id.navigationBarHeight) TextView navigationBarHeight;
    @Bind(R.id.diagonalScreenSize) TextView diagonalScreenSize;
    @Bind(R.id.displayRealSize) TextView displayRealSize;
    @Bind(R.id.isWifiConnection) TextView isWifiConnection;
+   @Bind(R.id.smallestWidth) TextView smallestWidth;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +62,16 @@ public class MainActivity extends AppCompatActivity {
       isLandscape.setText(String.valueOf(di.isLandscape));
       isPhone.setText(String.valueOf(di.isPhone));
       isTablet.setText(String.valueOf(di.isTablet));
+      isInMultiWindowMode.setText(String.valueOf(di.isInMultiWindowMode));
+      isInPictureInPicture.setText(String.valueOf(di.isInPictureInPictureMode));
       isAmazon.setText(String.valueOf(di.isAmazon));
-      heightPixels.setText(String.valueOf(di.heightPixels));
-      widthPixels.setText(String.valueOf(di.widthPixels));
+      height.setText(String.format(Locale.ENGLISH, "%spx : %sdp", String.valueOf(di.heightPixels), String.valueOf(di.heightDip)));
+      width.setText(String.format(Locale.ENGLISH, "%spx : %sdp", String.valueOf(di.widthPixels), String.valueOf(di.widthDip)));
       statusBarHeight.setText(String.valueOf(di.statusBarHeight));
       navigationBarHeight.setText(String.valueOf(di.navigationBarHeight));
       diagonalScreenSize.setText(String.valueOf(di.diagonalScreenSize));
       displayRealSize.setText(String.valueOf(di.getDisplayRealSize()));
       isWifiConnection.setText(String.valueOf(di.isWifiConnection()));
+      smallestWidth.setText(String.format(Locale.ENGLISH, "sw%sdp", di.smallestWidthDp));
    }
 }

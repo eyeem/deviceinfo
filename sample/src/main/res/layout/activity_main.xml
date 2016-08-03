@@ -88,6 +88,30 @@
 
          <TextView
             style="@style/Text"
+            android:text="isInMultiWindowMode"/>
+
+         <TextView
+            android:id="@+id/isInMultiWindowMode"
+            style="@style/Text"
+            tools:text="isInMultiWindowMode"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="isInPictureInPicture"/>
+
+         <TextView
+            android:id="@+id/isInPictureInPicture"
+            style="@style/Text"
+            tools:text="isInPictureInPicture"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
             android:text="isAmazon"/>
 
          <TextView
@@ -100,24 +124,24 @@
 
          <TextView
             style="@style/Text"
-            android:text="heightPixels"/>
+            android:text="height"/>
 
          <TextView
-            android:id="@+id/heightPixels"
+            android:id="@+id/height"
             style="@style/Text"
-            tools:text="heightPixels"/>
+            tools:text="height"/>
       </TableRow>
 
       <TableRow>
 
          <TextView
             style="@style/Text"
-            android:text="widthPixels"/>
+            android:text="width"/>
 
          <TextView
-            android:id="@+id/widthPixels"
+            android:id="@+id/width"
             style="@style/Text"
-            tools:text="widthPixels"/>
+            tools:text="width"/>
       </TableRow>
 
       <TableRow>
@@ -178,6 +202,18 @@
             android:id="@+id/isWifiConnection"
             style="@style/Text"
             tools:text="isWifiConnection"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="smallestWidth"/>
+
+         <TextView
+            android:id="@+id/smallestWidth"
+            style="@style/Text"
+            tools:text="smallestWidth"/>
       </TableRow>
 
    </TableLayout>

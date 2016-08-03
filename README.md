@@ -8,9 +8,14 @@ Easy info about Android device [ ![Download](https://api.bintray.com/packages/ey
 - isLandscape;
 - isPhone;
 - isTablet;
+- isInMultiWindowMode;
+- isInPictureInPictureMode;
 - isAmazon;
 - heightPixels;
+- heightDip;
 - widthPixels;
+- widthDip;
+- smallestWidthDp;
 - statusBarHeight;
 - navigationBarHeight;
 - diagonalScreenSize;
@@ -22,8 +27,10 @@ compile 'com.eyeem.deviceinfo:library:<latest>'
 ```
 
 ```Java
-// get reference to latest info
+// get reference to latest info using context, activity, or view
 DeviceInfo di = DeviceInfo.get(context);
+// or
+DeviceInfo di = DeviceInfo.get(view);
 
 // use as needed
 if(di.isPortrait) {
