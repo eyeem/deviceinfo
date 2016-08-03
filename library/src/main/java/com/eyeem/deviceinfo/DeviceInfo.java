@@ -65,6 +65,16 @@ public class DeviceInfo {
    public final boolean isTablet;
 
    /**
+    * Same as calling Activity.isInMultiWindowMode()
+    */
+   public final boolean isInMultiWindowMode;
+
+   /**
+    * Same as calling Activity.isInPictureInPictureMode()
+    */
+   public final boolean isInPictureInPictureMode;
+
+   /**
     * is an amazon device TODO: expand it to enum(?) to have expandable options.
     */
    public final boolean isAmazon;
@@ -78,6 +88,22 @@ public class DeviceInfo {
     * Activity width in pixels
     */
    public final int widthPixels;
+
+   /**
+    * Activity height in density independent pixels.
+    */
+   public final int heightDip;
+
+   /**
+    * Activity width in density independent pixels
+    */
+   public final int widthDip;
+
+   /**
+    * Device smallest width (in DP).
+    * This value matches the `swXXXdp` identifier from resources folder.
+    */
+   public final int smallestWidthDp;
 
    /**
     * Device status bar height
@@ -112,9 +138,14 @@ public class DeviceInfo {
          boolean isLandscape,
          boolean isPhone,
          boolean isTablet,
+         boolean isInMultiWindowMode,
+         boolean isInPictureInPictureMode,
          boolean isAmazon,
          int heightPixels,
          int widthPixels,
+         int heightDip,
+         int widthDip,
+         int smallestWidthDp,
          int statusBarHeight,
          int navigationBarHeight,
          float diagonalScreenSize,
@@ -127,9 +158,14 @@ public class DeviceInfo {
       this.isLandscape = isLandscape;
       this.isPhone = isPhone;
       this.isTablet = isTablet;
+      this.isInMultiWindowMode = isInMultiWindowMode;
+      this.isInPictureInPictureMode = isInPictureInPictureMode;
       this.isAmazon = isAmazon;
       this.heightPixels = heightPixels;
       this.widthPixels = widthPixels;
+      this.heightDip = heightDip;
+      this.widthDip = widthDip;
+      this.smallestWidthDp = smallestWidthDp;
       this.statusBarHeight = statusBarHeight;
       this.navigationBarHeight = navigationBarHeight;
       this.diagonalScreenSize = diagonalScreenSize;

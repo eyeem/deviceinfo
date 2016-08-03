@@ -52,8 +52,13 @@ public class Factory {
       boolean isPhone;
       boolean isTablet;
       boolean isAmazon;
+      boolean isMultiWindow;
+      boolean isPiP;
       int heightPixels;
       int widthPixels;
+      int heightDip;
+      int widthDip;
+      int smallestWidthDp;
       int statusBarHeight;
       int navigationBarHeight;
       float diagonalScreenSize;
@@ -71,10 +76,25 @@ public class Factory {
       boolean isAmazonDevice = Build.MANUFACTURER.equalsIgnoreCase("amazon");
       String installerName = context.getPackageManager().getInstallerPackageName(context.getPackageName());
       boolean fromAmazonStore = installerName != null && installerName.equalsIgnoreCase("com.amazon.venezia");
+
+      if (context instanceof Activity && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+         Activity a = (Activity) context;
+         isMultiWindow = getMultiWindow(a);
+         isPiP = getPip(a);
+      } else {
+         isMultiWindow = false;
+         isPiP = false;
+      }
+
       isAmazon = isAmazonDevice && fromAmazonStore;
 
       heightPixels = displayMetrics.heightPixels;
       widthPixels = displayMetrics.widthPixels;
+
+      heightDip = (int) (heightPixels / displayMetrics.density);
+      widthDip = (int) (widthPixels / displayMetrics.density);
+      smallestWidthDp = Math.min(heightDip, widthDip);
+
       displayRealSize = getDisplayRealSize(context);
 
       // device screen size in inches
@@ -93,9 +113,14 @@ public class Factory {
             isLandscape,
             isPhone,
             isTablet,
+            isMultiWindow,
+            isPiP,
             isAmazon,
             heightPixels,
             widthPixels,
+            heightDip,
+            widthDip,
+            smallestWidthDp,
             statusBarHeight,
             navigationBarHeight,
             diagonalScreenSize,
@@ -157,6 +182,16 @@ public class Factory {
       Point p = new Point();
       display.getSize(p);
       return p;
+   }
+
+   @TargetApi(Build.VERSION_CODES.N)
+   private static boolean getMultiWindow(Activity activity) {
+      return activity.isInMultiWindowMode();
+   }
+
+   @TargetApi(Build.VERSION_CODES.N)
+   private static boolean getPip(Activity activity) {
+      return activity.isInPictureInPictureMode();
    }
 
    private static Point getDisplaySize(Display display) {
