@@ -1,5 +1,6 @@
 package com.eyeem.deviceinfo;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
@@ -9,6 +10,7 @@ import android.content.res.Resources;
 import android.graphics.Point;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
+import android.support.annotation.RequiresPermission;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
@@ -136,9 +138,9 @@ public class Factory {
             diagonalScreenSize,
             displayRealSize,
             (Application) context.getApplicationContext(),
-              manufacturer,
-              deviceName,
-              isFingerPrintScanSupported);
+            manufacturer,
+            deviceName,
+            isFingerPrintScanSupported);
 
       CACHE.put(context, di);
       return di;
@@ -247,12 +249,12 @@ public class Factory {
       return dm;
    }
 
+   @RequiresPermission(Manifest.permission.USE_FINGERPRINT)
    private static boolean isFingerPrintAvailable(Context context){
       // Check if we're running on Android 6.0 (M) or higher
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
          //Fingerprint API only available on from Android 6.0 (M)
          FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
-         //noinspection MissingPermission
          return fingerprintManager.isHardwareDetected();
       }
 
