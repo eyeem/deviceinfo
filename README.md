@@ -20,6 +20,9 @@ Easy info about Android device [ ![Download](https://api.bintray.com/packages/ey
 - navigationBarHeight;
 - diagonalScreenSize;
 - displayRealSize;
+- is finger print supported;
+- device manufacturer name;
+- device name;
 
 ```Java
 // add to your dependencies
