@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
    @Bind(R.id.smallestWidth) TextView smallestWidth;
    @Bind(R.id.device_name) TextView deviceName;
    @Bind(R.id.manufacture_name) TextView manufacturerName;
+   @Bind(R.id.is_finger_print) TextView fingerPrintSupported;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -77,5 +78,6 @@ public class MainActivity extends AppCompatActivity {
       smallestWidth.setText(String.format(Locale.ENGLISH, "sw%sdp", di.smallestWidthDp));
       manufacturerName.setText(di.manufacturerName);
       deviceName.setText(di.deviceName);
+      fingerPrintSupported.setText(String.valueOf(di.isFingerPrintScanSupported));
    }
 }

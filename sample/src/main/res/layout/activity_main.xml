@@ -240,6 +240,18 @@
             tools:text="smallestWidth"/>
       </TableRow>
 
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="Fingerprint supported"/>
+
+         <TextView
+            android:id="@+id/is_finger_print"
+            style="@style/Text"
+            tools:text="smallestWidth"/>
+      </TableRow>
+
    </TableLayout>
 
 </ScrollView>

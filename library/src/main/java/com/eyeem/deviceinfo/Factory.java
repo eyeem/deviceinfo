@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.Resources;
 import android.graphics.Point;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -65,10 +66,12 @@ public class Factory {
       Point displayRealSize;
       String deviceName;
       String manufacturer;
+      boolean isFingerPrintScanSupported;
 
       is7inch = res.getBoolean(R.bool.is7inch);
       is10inch = res.getBoolean(R.bool.is10inch);
       isPortrait = res.getBoolean(R.bool.isPortrait);
+      isFingerPrintScanSupported = isFingerPrintAvailable(base);
 
       isLandscape = !isPortrait;
       isTablet = is7inch || is10inch;
@@ -134,7 +137,8 @@ public class Factory {
             displayRealSize,
             (Application) context.getApplicationContext(),
               manufacturer,
-              deviceName);
+              deviceName,
+              isFingerPrintScanSupported);
 
       CACHE.put(context, di);
       return di;
@@ -241,5 +245,17 @@ public class Factory {
       // everything failed, set some values just to avoid null
       dm.setToDefaults();
       return dm;
+   }
+
+   private static boolean isFingerPrintAvailable(Context context){
+      // Check if we're running on Android 6.0 (M) or higher
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+         //Fingerprint API only available on from Android 6.0 (M)
+         FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+         //noinspection MissingPermission
+         return fingerprintManager.isHardwareDetected();
+      }
+
+      return false;
    }
 }

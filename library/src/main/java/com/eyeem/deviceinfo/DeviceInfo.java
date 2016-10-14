@@ -135,6 +135,12 @@ public class DeviceInfo {
      */
    public final String deviceName;
 
+    /**
+     * Check if the device has finger print scanning hardware and android os supports finger print
+     * scan.
+     */
+   public final boolean isFingerPrintScanSupported;
+
    /**
     * Keeping the application for info that can change at any moment
     * E.g. networking info
@@ -162,7 +168,8 @@ public class DeviceInfo {
          Point displayRealSize,
          Application app,
          String manufacturerName,
-         String deviceName
+         String deviceName,
+         boolean isFingerPrintScanSupported
    ) {
       this.is7inch = is7inch;
       this.is10inch = is10inch;
@@ -185,6 +192,7 @@ public class DeviceInfo {
       this.app = app;
       this.deviceName = deviceName;
       this.manufacturerName = manufacturerName;
+      this.isFingerPrintScanSupported = isFingerPrintScanSupported;
    }
 
    /**
