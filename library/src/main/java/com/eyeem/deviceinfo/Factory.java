@@ -63,6 +63,8 @@ public class Factory {
       int navigationBarHeight;
       float diagonalScreenSize;
       Point displayRealSize;
+      String deviceName;
+      String manufacturer;
 
       is7inch = res.getBoolean(R.bool.is7inch);
       is10inch = res.getBoolean(R.bool.is10inch);
@@ -106,6 +108,11 @@ public class Factory {
       statusBarHeight = getAndroidResource(res, "status_bar_height");
       navigationBarHeight = getAndroidResource(res, "navigation_bar_height");
 
+
+      //get the device manufacturer.
+      manufacturer = Build.MANUFACTURER;
+       deviceName = Build.DEVICE;
+
       di = new DeviceInfo(
             is7inch,
             is10inch,
@@ -125,7 +132,9 @@ public class Factory {
             navigationBarHeight,
             diagonalScreenSize,
             displayRealSize,
-            (Application) context.getApplicationContext());
+            (Application) context.getApplicationContext(),
+              manufacturer,
+              deviceName);
 
       CACHE.put(context, di);
       return di;

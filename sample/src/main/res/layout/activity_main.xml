@@ -216,6 +216,30 @@
             tools:text="smallestWidth"/>
       </TableRow>
 
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="Manufacturer"/>
+
+         <TextView
+            android:id="@+id/manufacture_name"
+            style="@style/Text"
+            tools:text="smallestWidth"/>
+      </TableRow>
+
+       <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="Device name"/>
+
+         <TextView
+            android:id="@+id/device_name"
+            style="@style/Text"
+            tools:text="smallestWidth"/>
+      </TableRow>
+
    </TableLayout>
 
 </ScrollView>

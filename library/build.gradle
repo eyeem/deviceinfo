@@ -40,7 +40,7 @@ buildscript {
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    buildToolsVersion "24.0.3"
 
     defaultConfig {
         minSdkVersion 9
@@ -64,5 +64,5 @@ dependencies {
 
 // bintray upload scripts
 // https://inthecheesefactory.com/blog/how-to-upload-library-to-jcenter-maven-central-as-dependency/en
-apply from: 'install.gradle'
-apply from: 'bintray.gradle'
+//apply from: 'install.gradle'
+//apply from: 'bintray.gradle'

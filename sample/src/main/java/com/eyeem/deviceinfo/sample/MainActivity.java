@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
    @Bind(R.id.displayRealSize) TextView displayRealSize;
    @Bind(R.id.isWifiConnection) TextView isWifiConnection;
    @Bind(R.id.smallestWidth) TextView smallestWidth;
+   @Bind(R.id.device_name) TextView deviceName;
+   @Bind(R.id.manufacture_name) TextView manufacturerName;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -73,5 +75,7 @@ public class MainActivity extends AppCompatActivity {
       displayRealSize.setText(String.valueOf(di.getDisplayRealSize()));
       isWifiConnection.setText(String.valueOf(di.isWifiConnection()));
       smallestWidth.setText(String.format(Locale.ENGLISH, "sw%sdp", di.smallestWidthDp));
+      manufacturerName.setText(di.manufacturerName);
+      deviceName.setText(di.deviceName);
    }
 }
