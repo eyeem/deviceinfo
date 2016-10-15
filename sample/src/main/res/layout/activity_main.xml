@@ -225,7 +225,7 @@
          <TextView
             android:id="@+id/manufacture_name"
             style="@style/Text"
-            tools:text="smallestWidth"/>
+            tools:text="Manufacturer"/>
       </TableRow>
 
        <TableRow>
@@ -237,7 +237,7 @@
          <TextView
             android:id="@+id/device_name"
             style="@style/Text"
-            tools:text="smallestWidth"/>
+            tools:text="Device name"/>
       </TableRow>
 
       <TableRow>
@@ -249,7 +249,7 @@
          <TextView
             android:id="@+id/is_finger_print"
             style="@style/Text"
-            tools:text="smallestWidth"/>
+            tools:text="Fingerprint supported"/>
       </TableRow>
 
    </TableLayout>
