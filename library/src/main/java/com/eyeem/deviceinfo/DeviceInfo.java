@@ -125,6 +125,22 @@ public class DeviceInfo {
     */
    private final Point displayRealSize;
 
+    /**
+     * Name of the manufacture. (e.g. Motorola, Samsung etc.)
+     */
+   public final String manufacturerName;
+
+    /**
+     * Device name.
+     */
+   public final String deviceName;
+
+    /**
+     * Check if the device has finger print scanning hardware and android os supports finger print
+     * scan.
+     */
+   public final boolean isFingerPrintScanSupported;
+
    /**
     * Keeping the application for info that can change at any moment
     * E.g. networking info
@@ -150,7 +166,10 @@ public class DeviceInfo {
          int navigationBarHeight,
          float diagonalScreenSize,
          Point displayRealSize,
-         Application app
+         Application app,
+         String manufacturerName,
+         String deviceName,
+         boolean isFingerPrintScanSupported
    ) {
       this.is7inch = is7inch;
       this.is10inch = is10inch;
@@ -171,6 +190,9 @@ public class DeviceInfo {
       this.diagonalScreenSize = diagonalScreenSize;
       this.displayRealSize = displayRealSize;
       this.app = app;
+      this.deviceName = deviceName;
+      this.manufacturerName = manufacturerName;
+      this.isFingerPrintScanSupported = isFingerPrintScanSupported;
    }
 
    /**

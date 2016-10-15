@@ -216,6 +216,42 @@
             tools:text="smallestWidth"/>
       </TableRow>
 
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="Manufacturer"/>
+
+         <TextView
+            android:id="@+id/manufacture_name"
+            style="@style/Text"
+            tools:text="Manufacturer"/>
+      </TableRow>
+
+       <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="Device name"/>
+
+         <TextView
+            android:id="@+id/device_name"
+            style="@style/Text"
+            tools:text="Device name"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="Fingerprint supported"/>
+
+         <TextView
+            android:id="@+id/is_finger_print"
+            style="@style/Text"
+            tools:text="Fingerprint supported"/>
+      </TableRow>
+
    </TableLayout>
 
 </ScrollView>

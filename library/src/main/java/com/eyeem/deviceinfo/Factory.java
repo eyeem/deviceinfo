@@ -1,5 +1,6 @@
 package com.eyeem.deviceinfo;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
@@ -7,7 +8,9 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.Resources;
 import android.graphics.Point;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
+import android.support.annotation.RequiresPermission;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
@@ -63,10 +66,14 @@ public class Factory {
       int navigationBarHeight;
       float diagonalScreenSize;
       Point displayRealSize;
+      String deviceName;
+      String manufacturer;
+      boolean isFingerPrintScanSupported;
 
       is7inch = res.getBoolean(R.bool.is7inch);
       is10inch = res.getBoolean(R.bool.is10inch);
       isPortrait = res.getBoolean(R.bool.isPortrait);
+      isFingerPrintScanSupported = isFingerPrintAvailable(base);
 
       isLandscape = !isPortrait;
       isTablet = is7inch || is10inch;
@@ -106,6 +113,11 @@ public class Factory {
       statusBarHeight = getAndroidResource(res, "status_bar_height");
       navigationBarHeight = getAndroidResource(res, "navigation_bar_height");
 
+
+      //get the device manufacturer.
+      manufacturer = Build.MANUFACTURER;
+       deviceName = Build.DEVICE;
+
       di = new DeviceInfo(
             is7inch,
             is10inch,
@@ -125,7 +137,10 @@ public class Factory {
             navigationBarHeight,
             diagonalScreenSize,
             displayRealSize,
-            (Application) context.getApplicationContext());
+            (Application) context.getApplicationContext(),
+            manufacturer,
+            deviceName,
+            isFingerPrintScanSupported);
 
       CACHE.put(context, di);
       return di;
@@ -232,5 +247,17 @@ public class Factory {
       // everything failed, set some values just to avoid null
       dm.setToDefaults();
       return dm;
+   }
+
+   @RequiresPermission(Manifest.permission.USE_FINGERPRINT)
+   private static boolean isFingerPrintAvailable(Context context){
+      // Check if we're running on Android 6.0 (M) or higher
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+         //Fingerprint API only available on from Android 6.0 (M)
+         FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+         return fingerprintManager.isHardwareDetected();
+      }
+
+      return false;
    }
 }
