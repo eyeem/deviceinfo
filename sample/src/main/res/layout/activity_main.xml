@@ -172,6 +172,42 @@
 
          <TextView
             style="@style/Text"
+            android:text="navigationBarDimensions"/>
+
+         <TextView
+            android:id="@+id/navigationBarDimensions"
+            style="@style/Text"
+            tools:text="navigationBarDimensions"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="navigationBarGravity"/>
+
+         <TextView
+            android:id="@+id/navigationBarGravity"
+            style="@style/Text"
+            tools:text="navigationBarGravity"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
+            android:text="navigationBarSpace"/>
+
+         <TextView
+            android:id="@+id/navigationBarSpace"
+            style="@style/Text"
+            tools:text="navigationBarSpace"/>
+      </TableRow>
+
+      <TableRow>
+
+         <TextView
+            style="@style/Text"
             android:text="diagonalScreenSize"/>
 
          <TextView
