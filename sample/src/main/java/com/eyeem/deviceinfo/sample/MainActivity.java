@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
    @Bind(R.id.width) TextView width;
    @Bind(R.id.statusBarHeight) TextView statusBarHeight;
    @Bind(R.id.navigationBarHeight) TextView navigationBarHeight;
+   @Bind(R.id.navigationBarDimensions) TextView navigationBarDimensions;
+   @Bind(R.id.navigationBarGravity) TextView navigationBarGravity;
+   @Bind(R.id.navigationBarSpace) TextView navigationBarSpace;
    @Bind(R.id.diagonalScreenSize) TextView diagonalScreenSize;
    @Bind(R.id.displayRealSize) TextView displayRealSize;
    @Bind(R.id.isWifiConnection) TextView isWifiConnection;
@@ -69,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
       width.setText(String.format(Locale.ENGLISH, "%spx : %sdp", String.valueOf(di.widthPixels), String.valueOf(di.widthDip)));
       statusBarHeight.setText(String.valueOf(di.statusBarHeight));
       navigationBarHeight.setText(String.valueOf(di.navigationBarHeight));
+      navigationBarDimensions.setText(di.navigationBarDimensions.toString());
+      navigationBarGravity.setText(di.navigationBarGravity.toString());
+      navigationBarSpace.setText(String.valueOf(di.navigationBarSpace));
       diagonalScreenSize.setText(String.valueOf(di.diagonalScreenSize));
       displayRealSize.setText(String.valueOf(di.getDisplayRealSize()));
       isWifiConnection.setText(String.valueOf(di.isWifiConnection()));

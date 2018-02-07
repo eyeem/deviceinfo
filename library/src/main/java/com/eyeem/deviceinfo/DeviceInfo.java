@@ -13,6 +13,10 @@ import android.view.View;
  */
 public class DeviceInfo {
 
+   public enum NavigationBarGravity {
+      HORIZONTAL, VERTICAL, NONE
+   }
+
    /**
     * Get or create an instance of DeviceInfo with all latest info about this device
     *
@@ -112,8 +116,29 @@ public class DeviceInfo {
 
    /**
     * Device navigation bar height
+    * Deprecated: use {@link #navigationBarDimensions} or
+    * {@link #navigationBarGravity} with {@link #navigationBarSpace}
     */
-   public final int navigationBarHeight;
+   @Deprecated public final int navigationBarHeight;
+
+   /**
+    * Device navigation bar height or width.
+    * If navigationBarDimensions.x != 0, bar is on the left/right side.
+    * If navigationBarDimensions.y != 0, bar is on the bottom side.
+    */
+   public final Point navigationBarDimensions;
+
+   /**
+    * Device navigation bar gravity based on device orientation.
+    * HORIZONTAL, VERTICAL, NONE
+    */
+   public final NavigationBarGravity navigationBarGravity;
+
+   /**
+    * Space on screen that navigation bar is taking.
+    * To be used in combination with {@link #navigationBarGravity}
+    */
+   public final int navigationBarSpace;
 
    /**
     * Device diagonal screen in inches.
@@ -147,7 +172,7 @@ public class DeviceInfo {
          int widthDip,
          int smallestWidthDp,
          int statusBarHeight,
-         int navigationBarHeight,
+         Point navigationBarDimensions,
          float diagonalScreenSize,
          Point displayRealSize,
          Application app
@@ -167,7 +192,10 @@ public class DeviceInfo {
       this.widthDip = widthDip;
       this.smallestWidthDp = smallestWidthDp;
       this.statusBarHeight = statusBarHeight;
-      this.navigationBarHeight = navigationBarHeight;
+      this.navigationBarDimensions = navigationBarDimensions;
+      this.navigationBarGravity = getNavigationBarGravity();
+      this.navigationBarSpace = getNavigationBarHeight();
+      this.navigationBarHeight = getNavigationBarHeight();
       this.diagonalScreenSize = diagonalScreenSize;
       this.displayRealSize = displayRealSize;
       this.app = app;
@@ -195,6 +223,21 @@ public class DeviceInfo {
       } catch (Throwable t) {
          // https://fabric.io/eyeem/android/apps/com.baseapp.eyeem/issues/577f965affcdc0425064069f
          return false;
+      }
+   }
+
+   private int getNavigationBarHeight() {
+      return navigationBarDimensions.x > navigationBarDimensions.y ?
+            navigationBarDimensions.x : navigationBarDimensions.y;
+   }
+
+   private NavigationBarGravity getNavigationBarGravity() {
+      if (navigationBarDimensions.x == 0 && navigationBarDimensions.y == 0) {
+         return NavigationBarGravity.NONE;
+      } else if (navigationBarDimensions.x > navigationBarDimensions.y) {
+         return NavigationBarGravity.VERTICAL;
+      } else {
+         return NavigationBarGravity.HORIZONTAL;
       }
    }
 
