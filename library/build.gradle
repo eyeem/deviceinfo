@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 ext {
     publishedGroupId = 'com.eyeem.deviceinfo'
     artifact = 'library'
-    libraryVersion = '0.3.0'
+    libraryVersion = '0.3.1'
 
     bintrayRepo = 'maven'
     bintrayName = 'deviceinfo'
